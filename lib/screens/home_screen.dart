@@ -16,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int totalPomodoros = 0;
   late Timer timer;
 
+  // 매초 마다 변수 값을 UI에 갱신한다.
   void onTick(Timer timer) {
     if (totalSeconds == 0) {
       setState(() {
@@ -39,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  // 일시정지한다.
   void onPausePressed() {
     timer.cancel();
     setState(() {
@@ -46,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  // 리센한다.
   void onResetPressed() {
     timer.cancel();
     setState(() {
@@ -54,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  // integer를 00:00 포맷으로 반환한다.
   String format(int seconds) {
     var duration = Duration(seconds: seconds);
     return duration.toString().split(".").first.substring(2);
